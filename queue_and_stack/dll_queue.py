@@ -10,7 +10,7 @@ class Queue:
         # Doubly Linked List allows easily find the head or tail
         # It also helps with First In and First Out Approach
         # When enqueue we can use the tail pointer and when we dequeue we can use head pointer
-        # Since DLL has methods constructed, we can use those to implement faster
+        # Since DLL has methods constructed, we can use those to implement the Queue Class faster
         self.storage = DoublyLinkedList()
 
     def enqueue(self, value):
