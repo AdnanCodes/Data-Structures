@@ -48,7 +48,7 @@ class LRUCache:
     def set(self, key, value):
         #Check for both caches, if key exist first then overwrite, otherwise make new entry and remove last item if exceeds the given limit
         #at end of each operation move them to front
-        if key in self.cache:
+        if key in self.cache: #Cache Hit when item is found otherwise Cache Miss
             #Overwrite the Node value and move it up front
             node = self.cache[key]
             node.value = (key,value) #Store node value as Tuple as node value itself won't modified but entire node is replaced.
@@ -63,7 +63,7 @@ class LRUCache:
                 #Remove the key from cache and its linked pair which is this case is the tail
                 #Retrieve key from tail node and then delete tail node 
                 self.cache.pop(self.storage.tail.value[0])
-                self.storage.remove_from_tail
+                self.storage.remove_from_tail()
                 #Now make space in size
                 self.size -= 1
             
