@@ -51,7 +51,7 @@ class LRUCache:
         if key in self.cache:
             #Overwrite the Node value and move it up front
             node = self.cache[key]
-            node.value = [key,value]
+            node.value = (key,value) #Store node value as Tuple as node value itself won't modified but entire node is replaced.
             self.storage.move_to_front(node)
         else:
             #lets make new node and add it to the front of the cache and delete tail if it exeeds the size
@@ -69,6 +69,6 @@ class LRUCache:
             
             #Now we can add element as normal
 
-            self.storage.add_to_head([key,value])#Add the data point to front the list
+            self.storage.add_to_head((key,value))#Add the data point to front the list
             self.cache[key] = self.storage.head #Create new key in cache and link it up to newly created node
             self.size += 1#increase size of cache
